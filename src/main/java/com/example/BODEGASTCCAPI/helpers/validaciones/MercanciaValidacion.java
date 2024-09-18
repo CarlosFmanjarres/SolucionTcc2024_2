@@ -17,10 +17,10 @@ public class MercanciaValidacion {
     }
 
     public boolean validarNombre(String nombre){
-        if(nombre.length()>50){
-            return false;
+        if (nombre.length() <= 50) {
+            return nombre.matches("^[a-zA-Z\\s]+$");
         }
-        return nombre.matches("^[a-zA-Z\\s]+$");
+        return false;
     }
 
     public boolean validarFechas(LocalDate fechaIngreso, LocalDate fechaSalida){

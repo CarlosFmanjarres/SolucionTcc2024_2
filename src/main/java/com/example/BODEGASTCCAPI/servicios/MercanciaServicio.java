@@ -45,6 +45,10 @@ public class MercanciaServicio {
                 throw new Exception(Mensaje.FECHA_INVALIDA.getMensaje());
             }
 
+            if(!this.validacion.validarNombre(datosMercancia.getNombre())){
+                throw new Exception(Mensaje.NOMBRE_INVALIDO.getMensaje());
+            }
+
             return this.repositorio.save(datosMercancia);
 
         }catch(Exception error){
