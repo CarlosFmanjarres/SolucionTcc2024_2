@@ -14,32 +14,34 @@ import java.util.HashMap;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/mercancia/v1/mercancias")
+@RequestMapping("/merca/v1/mercancias")
 public class ControladorMercancia {
 
     //Inyectar una dependencia al servicio
     @Autowired
     MercanciaServicio mercanciaServicio;
 
-    //llamar a cada uno de los metodos disponibles
-    // en el servicio
+    //llamar a cadauno de los metodos disponibles en el servicio
 
     @PostMapping
     public ResponseEntity<?> LlamadoGuardarMercancia(@RequestBody Mercancia datosMercanciaEnviadosCliente){
-        try{
+        try {
+
             return ResponseEntity
                     .status(HttpStatus.OK)
                     .body(this.mercanciaServicio.almacenarMercancia(datosMercanciaEnviadosCliente));
-        }catch(Exception error){
-            HashMap<String, Object> mensajeRespuesta= new HashMap<>();
-            mensajeRespuesta.put("mensaje",error.getMessage());
+
+        }catch (Exception error){
+
+            HashMap<String, Object> mensajeRespuesta = new HashMap<>();
+            mensajeRespuesta.put("mensaje", error.getMessage());
+
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(mensajeRespuesta);
+
         }
-
     }
-
 
 
 }

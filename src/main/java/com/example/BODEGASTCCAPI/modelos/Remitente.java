@@ -12,7 +12,7 @@ public class Remitente {
     private Long id;
 
     @Column(name="nombres", nullable = false)
-    private String nombres;//maximo 50 caracteres y solo se acepan letras y espacios
+    private String nombres;
 
     @Column(name="departamento", nullable = false)
     private String departamento;
